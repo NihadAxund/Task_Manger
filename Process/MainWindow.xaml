@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Process1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
          xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        Title="MainWindow" Height="550" Width="1000" MaxHeight="550" MinWidth="1000" MaxWidth="1000" MouseLeftButtonDown="OnMouseLeftButtonDown" MinHeight="550" WindowStyle="None" AllowsTransparency="True" Background="#7F2E2E2E">
+        Title="MainWindow" Height="550" Width="1000" MaxHeight="550" MinWidth="1000" MaxWidth="1000" MouseLeftButtonDown="OnMouseLeftButtonDown" MinHeight="550" WindowStyle="None" AllowsTransparency="True" Background="#72090909">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -22,7 +23,14 @@
         <Image VerticalAlignment="Center" HorizontalAlignment="Left" Margin="250,0,0,0" Height="80" Width="100" gif:ImageBehavior.AnimatedSource="/ja_diap917a.gif"
                          gif:ImageBehavior.AutoStart="True">
         </Image>
-        <Button  Height="40" Width="30" Margin="0,-30,10,0" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#CC0087FF" FontSize="30" Click="Button_Click">X</Button>
+        <TextBox
+            HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,150,0" Height="50" Width="200"
+    Style="{StaticResource MaterialDesignFilledTextBox}"
+    AcceptsReturn="True"
+    TextWrapping="Wrap"
+    MaxWidth="400"
+    materialDesign:HintAssist.Hint="Floating hint in a box" Background="#66FFFFFF" BorderBrush="#89FFFFFF" CaretBrush="#FF5C00FF" Foreground="#E5002BFF" />
+        <Button  Height="50" Width="50" Margin="0,-30,10,0" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#CC0087FF" FontSize="30" Click="Button_Click">X</Button>
         <Button Tag="1" MouseEnter="Button_MouseEnter" VerticalAlignment="Bottom" Background="#261BE6FF" Height="50" Width="100" Margin="0,10,50,0" HorizontalAlignment="Right"  Foreground="#CC0087FF" FontSize="36" Click="Button_Click">KILL</Button>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -30,7 +38,7 @@
                 <ColumnDefinition Width="9*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
-            <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" MouseLeave="Grid_MouseEnter" SelectionChanged="List_box_SelectionChanged" Grid.Column="1" Name="List_box" Background="#0C00FFED"></ListBox>
+            <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" MouseLeave="Grid_MouseEnter" SelectionChanged="List_box_SelectionChanged" Grid.Column="1" Name="List_box" Background="#1900FFED"></ListBox>
         </Grid>
         <DockPanel Grid.Row="2">
             <Label VerticalAlignment="Top" Margin="50,0,0,0" FontSize="20" Foreground="#CC0087FF" Background="#261BE6FF">Threed Count</Label>
