@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Threading;
+using System.Threading;
 
 namespace Process1
 {
@@ -24,6 +25,7 @@ namespace Process1
     {
         private System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
         int num = 0;
+        Thread thread;
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             Start();
@@ -33,11 +35,16 @@ namespace Process1
         public MainWindow()
         {
             InitializeComponent();
+            thread = new Thread(StarTheared);
+            thread.Priority = ThreadPriority.Lowest;
+            thread.Start();
+        }
+        private void StarTheared()
+        {
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0,1);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1);
             dispatcherTimer.Start();
         }
-
         private void Start()
         {
             dispatcherTimer.Stop();

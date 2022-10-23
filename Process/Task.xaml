@@ -8,9 +8,9 @@
              d:DesignHeight="30" d:DesignWidth="850">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <Label Name="Name_Task" Foreground="#CC0087FF">AA</Label>
-            <Label Name="Name_Thread" Foreground="#CC0087FF" Margin="10,0,0,0">AA</Label>
-            <Label Name="start_count" Foreground="#CC0087FF" Margin="5,0,0,0"></Label>
+            <Label FontSize="15" Name="Name_Task" Foreground="#CC0087FF" FontWeight="Bold">AA</Label>
+            <Label FontSize="15" Name="Name_Thread" Foreground="#CC0087FF" Margin="10,0,0,0" FontWeight="Bold">AA</Label>
+            <Label FontSize="15" Name="start_count" Foreground="#CC0087FF" Margin="5,0,0,0" FontWeight="Bold"></Label>
         </StackPanel>
     </Grid>
 </UserControl>
