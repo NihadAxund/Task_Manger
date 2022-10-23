@@ -93,9 +93,7 @@ namespace Process1
                     case "1":
                         if (List_box.Items.Count!=0&& List_box.SelectedItem is Process.Task a)
                         {
-                           // MessageBox.Show(a.Name_Task.ToString());
                             Kill_Proces(a.ID1);
-
                         }
                         dispatcherTimer.Start();
                         break;
