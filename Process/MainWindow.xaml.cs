@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace Process1
 {
@@ -21,20 +22,59 @@ namespace Process1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+        int num = 0;
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            Start();
+            dispatcherTimer.Start();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0,1);
+            dispatcherTimer.Start();
         }
+
         private void Start()
         {
-    
-            var processes = System.Diagnostics.Process.GetProcesses();
-
-            foreach (var proc in processes)
+            dispatcherTimer.Stop();
+            List_box.Items.Clear();
+            var processe = System.Diagnostics.Process.GetProcesses();
+            num = 0;
+            var process1 = processe.OrderBy(x => x.ProcessName);
+            List_box.Items.Add(new Process.Task("Procec Name", "Threads Count", "Base Priority"));
+            foreach (var proc in process1)
             {
-                Console.WriteLine($"{proc.ProcessName} - {proc.Id} - {proc.Threads.Count} - {proc.BasePriority}");
+               
+
+                List_box.Items.Add(new Process.Task(proc.ProcessName, proc.Threads.Count.ToString(), proc.BasePriority.ToString()));
+/*               MessageBox.Show(proc.HandleCount.ToString()*/
+               
+                num += proc.Threads.Count;
                 //if (proc.ProcessName == "notepad") proc.Kill();
             }
+            Full_Count.Content = num.ToString();
+        }
+
+        private void List_box_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dispatcherTimer.Stop();
+        }
+
+
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+            dispatcherTimer.Start();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Stop();
+            Close();
         }
     }
 }

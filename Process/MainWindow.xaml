@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Process1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="1000">
+         xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        Title="MainWindow" Height="550" Width="1000" MaxHeight="550" MinWidth="1000" MaxWidth="1000" MinHeight="550" WindowStyle="None" AllowsTransparency="True" Background="#7F2E2E2E">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Button Height="50" Width="50" Margin="0,0,10,0" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#CC0087FF" FontSize="36" Click="Button_Click">X</Button>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox MouseLeave="Grid_MouseEnter" SelectionChanged="List_box_SelectionChanged" Grid.Column="1" Name="List_box" Background="#0C00FFED"></ListBox>
+        </Grid>
+        <DockPanel Grid.Row="2">
+            <Label VerticalAlignment="Top" Margin="30,0,0,0" FontSize="20" Foreground="#CC0087FF">Threed Count</Label>
+            <Label Margin="-110,30,0,0" Foreground="#CC0087FF" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" FontSize="35" Name="Full_Count" ></Label>
+            <Image Margin="-500,0,0,0" Height="80" Width="100" gif:ImageBehavior.AnimatedSource="/ja_diap917a.gif"
+                         gif:ImageBehavior.AutoStart="True">
 
+            </Image>
+        </DockPanel>
     </Grid>
 </Window>
