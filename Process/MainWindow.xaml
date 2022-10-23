@@ -24,10 +24,12 @@
                          gif:ImageBehavior.AutoStart="True">
         </Image>
         <materialDesign:PackIcon Width="65" Height="65" VerticalAlignment="Center" Kind="Alien" Margin="350,10,0,0" Foreground="#7F00BEFF" />
-        <materialDesign:PackIcon  Width="50" Height="80"  Margin="6,0,0,0" VerticalAlignment="Center" Foreground="#7F00BEFF" Kind="BatteryCharging60" />
+        <materialDesign:PackIcon  Width="50" Height="80"  Margin="6,0,0,0" VerticalAlignment="Center" Foreground="#4CFFFFFF" Kind="BatteryCharging60" />
         <Label VerticalAlignment="Center" FontSize="30" Width="100" Margin="0,10,50,0" Foreground="#7F00BEFF" FontWeight="Bold" FontStyle="Italic" FontFamily="Maiandra GD">DELL</Label>
         
         <TextBox
+            Name="txt_box1"
+            PreviewKeyDown="TextBox_KeyDown"
             HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,150,0" Height="50" Width="200"
     Style="{StaticResource MaterialDesignFilledTextBox}"
     AcceptsReturn="True"

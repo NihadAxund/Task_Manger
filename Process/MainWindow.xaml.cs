@@ -106,5 +106,22 @@ namespace Process1
         {
             dispatcherTimer.Stop();
         }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(txt_box1.Text);
+                    txt_box1.Text = String.Empty;
+
+                }
+                catch (Exception)
+                {
+                    txt_box1.Text = String.Empty;
+                }
+            }
+        }
     }
 }
