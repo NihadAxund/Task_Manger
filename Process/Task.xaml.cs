@@ -20,13 +20,15 @@ namespace Process
     /// </summary>
     public partial class Task : UserControl
     {
+        public string ID1{ get; set; }
         public Task()
         {
             InitializeComponent();
         }
-        public Task(string Name ,string Thread,string Start_count) 
+        public Task(string Name ,string Thread,string Start_count,string ID) 
         {
             InitializeComponent();
+            ID1 = ID;
             Name_Task.Content = Name; Name_Thread.Content = Thread;
             start_count.Content = Start_count;
         }

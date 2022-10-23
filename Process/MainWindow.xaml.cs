@@ -42,15 +42,14 @@ namespace Process1
         {
             dispatcherTimer.Stop();
             List_box.Items.Clear();
-            var processe = System.Diagnostics.Process.GetProcesses();
             num = 0;
-            var process1 = processe.OrderBy(x => x.ProcessName);
-            List_box.Items.Add(new Process.Task("Procec Name", "Threads Count", "Base Priority"));
-            foreach (var proc in process1)
+           
+            List_box.Items.Add(new Process.Task("Procec Name", "Threads Count", "Base Priority"," "));
+            foreach (var proc in System.Diagnostics.Process.GetProcesses())
             {
                
 
-                List_box.Items.Add(new Process.Task(proc.ProcessName, proc.Threads.Count.ToString(), proc.BasePriority.ToString()));
+                List_box.Items.Add(new Process.Task(proc.ProcessName, proc.Threads.Count.ToString(), proc.BasePriority.ToString(),proc.Id.ToString()));
 /*               MessageBox.Show(proc.HandleCount.ToString()*/
                
                 num += proc.Threads.Count;
@@ -58,7 +57,10 @@ namespace Process1
             }
             Full_Count.Content = num.ToString();
         }
-
+        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
         private void List_box_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dispatcherTimer.Stop();
@@ -70,11 +72,44 @@ namespace Process1
         {
             dispatcherTimer.Start();
         }
-
+        private void Kill_Proces(string Name)
+        {
+            int NUMBER = Convert.ToInt32(Name);
+            foreach (var item in System.Diagnostics.Process.GetProcesses().OrderBy(x=>x.ProcessName))
+            {
+                if (item.Id == NUMBER)
+                {
+                    item.Kill();
+                    return;
+                }
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (sender is Button btn)
+            {
+                switch (btn.Tag)
+                {
+                    case "1":
+                        if (List_box.Items.Count!=0&& List_box.SelectedItem is Process.Task a)
+                        {
+                           // MessageBox.Show(a.Name_Task.ToString());
+                            Kill_Proces(a.ID1);
+
+                        }
+                        dispatcherTimer.Start();
+                        break;
+                    default:
+                        dispatcherTimer.Stop();
+                        Close();
+                        break;
+                }
+            }
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
             dispatcherTimer.Stop();
-            Close();
         }
     }
 }
