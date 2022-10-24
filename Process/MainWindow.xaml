@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
          xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        Title="MainWindow" Height="550" Width="1000" MaxHeight="550" MinWidth="1000" MaxWidth="1000" MouseLeftButtonDown="OnMouseLeftButtonDown" MinHeight="550" WindowStyle="None" AllowsTransparency="True" Background="#7F000000">
+        Title="MainWindow" Height="550" Width="1000" MaxHeight="550" MinWidth="1000" MaxWidth="1000" MouseLeftButtonDown="OnMouseLeftButtonDown" MinHeight="550" WindowStyle="None" AllowsTransparency="True" Background="#99000000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -23,31 +23,31 @@
         <Image VerticalAlignment="Center" HorizontalAlignment="Left" Margin="250,0,0,0" Height="80" Width="100" gif:ImageBehavior.AnimatedSource="/ja_diap917a.gif"
                          gif:ImageBehavior.AutoStart="True">
         </Image>
-        <materialDesign:PackIcon Width="65" Height="65" VerticalAlignment="Center" Kind="Alien" Margin="350,10,0,0" Foreground="#7F00BEFF" />
+        <materialDesign:PackIcon Width="65" Height="65" VerticalAlignment="Center" Kind="Alien" Margin="350,10,0,0" Foreground="#8C00BEFF" />
         <materialDesign:PackIcon  Width="50" Height="80"  Margin="6,0,0,0" VerticalAlignment="Center" Foreground="#4CFFFFFF" Kind="BatteryCharging60" />
-        <Label VerticalAlignment="Center" FontSize="30" Width="100" Margin="0,10,50,0" Foreground="#7F00BEFF" FontWeight="Bold" FontStyle="Italic" FontFamily="Maiandra GD">DELL</Label>
+        <Label VerticalAlignment="Center" FontSize="30" Width="100" Margin="0,10,50,0" Foreground="#8C00BEFF" FontWeight="Bold" FontStyle="Italic" FontFamily="Maiandra GD">DELL</Label>
         
         <TextBox
             Name="txt_box1"
             PreviewKeyDown="TextBox_KeyDown"
-            HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,150,0" Height="50" Width="200"
+            HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,147,0" Height="48" Width="200"
     Style="{StaticResource MaterialDesignFilledTextBox}"
     AcceptsReturn="True"
     TextWrapping="Wrap"
     MaxWidth="400"
-    materialDesign:HintAssist.Hint="Floating hint in a box" Background="#66FFFFFF" BorderBrush="#89FFFFFF" CaretBrush="#FF5C00FF" Foreground="#E5002BFF" />
+    materialDesign:HintAssist.Hint="Floating hint in a box" Background="#72FFFFFF" BorderBrush="#89FFFFFF" CaretBrush="#FF5C00FF" Foreground="#E5002BFF" />
         <Button  Height="50" Width="50" Margin="0,-30,10,0" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#CC0087FF" FontSize="30" Click="Button_Click">X</Button>
-        <Button Tag="1" MouseEnter="Button_MouseEnter" VerticalAlignment="Bottom" Background="#261BE6FF" Height="50" Width="100" Margin="0,10,50,0" HorizontalAlignment="Right"  Foreground="#CC0087FF" FontSize="36" Click="Button_Click">KILL</Button>
+        <Button Grid.RowSpan="2" Tag="1" MouseEnter="Button_MouseEnter" VerticalAlignment="Bottom" Background="#2600FFED" Height="50" Width="100" Margin="0,0,48,365" HorizontalAlignment="Right"  Foreground="#CC0087FF" FontSize="36" Click="Button_Click" BorderBrush="{x:Null}">KILL</Button>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition Width="9*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
-            <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" MouseLeave="Grid_MouseEnter" SelectionChanged="List_box_SelectionChanged" Grid.Column="1" Name="List_box" Background="#1900FFED"></ListBox>
+            <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" MouseLeave="Grid_MouseEnter" SelectionChanged="List_box_SelectionChanged" Grid.Column="1" Name="List_box" Background="#2600FFED"></ListBox>
         </Grid>
         <DockPanel Grid.Row="2">
-            <Label VerticalAlignment="Top" Margin="50,0,0,0" FontSize="20" Foreground="#CC0087FF" Background="#261BE6FF">Threed Count</Label>
+            <Label VerticalAlignment="Top" Margin="50,0,0,0" FontSize="20" Foreground="#CC0087FF" Background="#331BE6FF">Threed Count</Label>
             <Label Margin="-120,30,0,0" Foreground="#CC0087FF" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" FontSize="35" Name="Full_Count" ></Label>
 
         </DockPanel>

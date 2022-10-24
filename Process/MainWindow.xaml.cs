@@ -18,9 +18,6 @@ using System.Threading;
 
 namespace Process1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
@@ -31,7 +28,6 @@ namespace Process1
             Start();
             dispatcherTimer.Start();
         }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -50,13 +46,11 @@ namespace Process1
             dispatcherTimer.Stop();
             List_box.Items.Clear();
             num = 0;
-           
             List_box.Items.Add(new Process.Task("Procec Name", "Threads Count", "Base Priority"," "));
             foreach (var proc in System.Diagnostics.Process.GetProcesses())
             {
                 List_box.Items.Add(new Process.Task(proc.ProcessName, proc.Threads.Count.ToString(), proc.BasePriority.ToString(),proc.Id.ToString()));
                 num += proc.Threads.Count;
-                //if (proc.ProcessName == "notepad") proc.Kill();
             }
             Full_Count.Content = num.ToString();
         }
@@ -73,7 +67,6 @@ namespace Process1
         private void Kill_Proces(string Name)
         {
             int NUMBER = Convert.ToInt32(Name);
-          //  var pa = System.Diagnostics.Process.GetProcesses();
             foreach (var item in System.Diagnostics.Process.GetProcesses().OrderBy(x=>x.ProcessName))
             {
                 if (item.Id == NUMBER)
